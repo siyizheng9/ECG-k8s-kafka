@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # check if kubectl already installed
 if type kubectl >/dev/null 2>&1
 then
