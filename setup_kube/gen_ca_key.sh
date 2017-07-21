@@ -5,12 +5,16 @@
 # This shell script should generate needed CA files and private keys
 # and also mv file to the corret directories.
 
+# get cluster machines' ip addresses
+source ../cluster_ip_vars.sh
+
 print_progress(){
     echo -e "\n\033[31m**\e[0m $1 \n"
 }
 
 mkdir ssl
 cd ssl
+
 cfssl print-defaults config > config.json
 cfssl print-defaults csr > csr.json
 
@@ -71,10 +75,10 @@ cat > kubernetes-csr.json <<EOF
     "FI": "kubernetes",
     "hosts": [
       "127.0.0.1",
-      "10.0.2.11",
-      "10.0.2.12",
-      "10.0.2.13",
-      "192.168.56.1",
+      "$MASTER",
+      "$WORKER1",
+      "$WORKER2",
+      "$CLIENT",
       "kubernetes",
       "kubernetes.default",
       "kubernetes.default.svc",

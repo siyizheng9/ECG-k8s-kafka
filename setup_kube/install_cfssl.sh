@@ -4,6 +4,14 @@ printfUsage() {
     printf 'usage:\ncfssl.sh \n-i install cfssl to /usr/local/bin/'
 }
 
+# check if cfssl already installed
+if type cfssl >/dev/null 2>&1
+then
+    echo >&2 "cfssl already installed"
+    exit 1
+fi
+
+
 if [[ $# -lt 1 ]]
 then
     printfUsage

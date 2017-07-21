@@ -7,8 +7,7 @@ print_progress(){
 MASTER='192.168.56.101'
 WORKER1='192.168.56.102'
 WORKER2='192.168.56.103'
-MASTER_CONTENT='setup_etcd setup_kube'
-WORKER_CONTENT='setup_etcd setup_kube'
+CONTENT='setup_etcd setup_kube clean.sh cluster_ip_vars.sh'
 
 # Test ssh port
 for HOST in $MASTER $WORKER1 $WORKER2
@@ -19,7 +18,7 @@ do
     if [ $online -eq 0 ]; then
         print_progress "$HOST Online"
         print_progress "scp files to $HOST"
-        scp -r $WORKER_CONTENT zsy@${HOST}:kubernetes/
+        scp -r $CONTENT zsy@${HOST}:~/kubernetes/
     else
         print_progress "$HOST Offline"
     fi

@@ -2,6 +2,9 @@
 
 # NOTE: remember to replace KUBE_APISERVER to the actual kuber_apiserver ip address
 
+# get cluster machines' ip addresses
+source ../cluster_ip_vars.sh
+
 print_progress(){
     echo -e "\n\033[31m**\e[0m $1 \n"
 }
@@ -16,13 +19,12 @@ EOF
 print_progress 'Token generated'
 
 print_progress 'cp token to /etc/kubernetes'
-cp token.csv /etc/kubernetes/
+sudo cp token.csv /etc/kubernetes/
 
 print_progress 'Creating kubelet bootstrapping kubeconfig file'
 
-cd /etc/kubernetes
 # remember to replace server ip address 
-export KUBE_APISERVER="https://10.0.2.11:6443"
+export KUBE_APISERVER="https://$MASTER:6443"
 # set cluster parameters
 kubectl config set-cluster kubernetes \
 --certificate-authority=/etc/kubernetes/ssl/ca.pem \
@@ -45,7 +47,7 @@ print_progress 'Finished generating kubelet bootstarpping kubeconfig file'
 
 print_progress 'Creating kube-proxy kubeconfig file'
 
-export KUBE_APISERVER="https://10.0.2.11:6443"
+export KUBE_APISERVER="https://$MASTER:6443"
 # set cluster paramters
 kubectl config set-cluster kubernetes \
 --certificate-authority=/etc/kubernetes/ssl/ca.pem \
@@ -53,7 +55,7 @@ kubectl config set-cluster kubernetes \
 --server=${KUBE_APISERVER} \
 --kubeconfig=kube-proxy.kubeconfig
 # set client authentication parameters
-kubectl config set-credentials kube-proxy \
+sudo kubectl config set-credentials kube-proxy \
 --client-certificate=/etc/kubernetes/ssl/kube-proxy.pem \
 --client-key=/etc/kubernetes/ssl/kube-proxy-key.pem \
 --embed-certs=true \
@@ -67,3 +69,5 @@ kubectl config set-context default \
 kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
 
 print_progress 'Finisied generating kube-proxy kubeconfig file'
+
+sudo cp *.kubeconfig /etc/kubernetes/
