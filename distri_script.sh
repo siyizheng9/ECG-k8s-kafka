@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print_progress(){
-    echo -e "\n\033[31m**\e[0m $1 \n"
+    echo -e "\n\033[31m**\033[0m $1 \n"
 }
 
 MASTER='192.168.56.101'
@@ -17,8 +17,8 @@ do
     online=$?
     if [ $online -eq 0 ]; then
         print_progress "$HOST Online"
-        print_progress "scp files to $HOST"
-        scp -r $CONTENT zsy@${HOST}:~/kubernetes/
+        print_progress "rsync files to $HOST"
+        rsync -ruv $CONTENT zsy@${HOST}:~/kubernetes/
     else
         print_progress "$HOST Offline"
     fi

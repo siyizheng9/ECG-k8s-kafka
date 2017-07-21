@@ -99,6 +99,8 @@ etcdctl \
 
 [Clustering Guide](https://github.com/coreos/etcd/blob/master/Documentation/v2/clustering.md)
 
+[Clustering Guide](https://coreos.com/etcd/docs/latest/v2/clustering.html)
+
 [Bootstrapping a H/A etcd cluster](https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/04-etcd.md)
 
 [创建高可用 etcd 集群](https://github.com/feiskyer/kubernetes-handbook/blob/master/deploy/centos/etcd-cluster-installation.md)
