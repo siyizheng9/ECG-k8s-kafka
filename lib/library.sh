@@ -26,3 +26,8 @@ initializeANSI()
 
     reset="${esc}[0m"
 }
+
+print_progress(){
+    initializeANSI
+    echo -e "\n${redf}**${reset} $1 \n"
+}

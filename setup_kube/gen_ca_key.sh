@@ -6,7 +6,7 @@
 # and also mv file to the corret directories.
 
 # get cluster machines' ip addresses
-source ../cluster_ip_vars.sh
+source ../config/cluster_ip_vars.sh
 
 print_progress(){
     echo -e "\n\033[31m**\e[0m $1 \n"

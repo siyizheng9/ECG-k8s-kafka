@@ -3,11 +3,8 @@
 # NOTE: remember to replace KUBE_APISERVER to the actual kuber_apiserver ip address
 
 # get cluster machines' ip addresses
-source ../cluster_ip_vars.sh
-
-print_progress(){
-    echo -e "\n\033[31m**\e[0m $1 \n"
-}
+. ../config/cluster_ip_vars.sh
+. ../lib/library.sh
 
 print_progress 'Creating Token auth file'
 
