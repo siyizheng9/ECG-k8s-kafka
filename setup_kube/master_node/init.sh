@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get MASTER variable
-source ../../cluster_ip_vars.sh
+. ../../config/cluster_ip_vars.sh
 
 # download and cp kubernetes binaries to path
 echo 'downloading kubernetes binaries'
