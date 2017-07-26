@@ -1,10 +1,7 @@
 #!/bin/bash
 
-source ../config/cluster_ip_vars.sh
-
-print_progress(){
-    echo -e "\n\033[31m**\e[0m $1 \n"
-}
+. ../config/cluster_ip_vars.sh
+. ../lib/library.sh
 
 if type etcd >/dev/null 2>&1
 then

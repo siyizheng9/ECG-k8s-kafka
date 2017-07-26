@@ -1,8 +1,6 @@
 #!/bin/bash
 
-print_progress(){
-    echo -e "\n\033[31m**\033[0m $1 \n"
-}
+. ./lib/library.sh
 
 MASTER='192.168.56.101'
 WORKER1='192.168.56.102'
