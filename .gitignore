@@ -1,0 +1,3 @@
+client/ssl/admin-key.pem
+client/ssl/admin.pem
+client/ssl/ca.pem

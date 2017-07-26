@@ -45,7 +45,7 @@ print_progress 'creating CA certificate signing request'
 touch ca-csr.json
 cat > ca-csr.json <<EOF
 {
-  "FI": "kubernetes",
+  "CN": "kubernetes",
   "key": {
     "algo": "rsa",
     "size": 2048
@@ -72,13 +72,13 @@ print_progress 'create kuberntes certificate signing request'
 touch kubernetes-csr.json
 cat > kubernetes-csr.json <<EOF
 {
-    "FI": "kubernetes",
+    "CN": "kubernetes",
     "hosts": [
       "127.0.0.1",
       "$MASTER",
       "$WORKER1",
       "$WORKER2",
-      "$CLIENT",
+      "$HOST_NETWORK",
       "kubernetes",
       "kubernetes.default",
       "kubernetes.default.svc",
@@ -111,7 +111,7 @@ print_progress 'creating amdin certificate signing request'
 touch admin-csr.json
 cat > admin-csr.json <<EOF
 {
-  "FI": "admin",
+  "CN": "admin",
   "hosts": [],
   "key": {
     "algo": "rsa",
@@ -139,7 +139,7 @@ print_progress 'ceating kub-proxy certificate signing request'
 touch kube-proxy-csr.json
 cat > kube-proxy-csr.json <<EOF
 {
-  "FI": "system:kube-proxy",
+  "CN": "system:kube-proxy",
   "hosts": [],
   "key": {
     "algo": "rsa",
