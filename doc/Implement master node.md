@@ -26,10 +26,9 @@ ls /etc/kubernetes/ssl
 Download the offical kubernetes release binaries:
 
 ```bash
-wget https://github.com/kubernetes/kubernetes/releases/download/v1.7.2/kubernetes.tar.gz
+wget  https://dl.k8s.io/v1.7.2/kubernetes-server-linux-amd64.tar.gz
 tar -xzvf kubernetes.tar.gz
 cd kubernetes
-./cluster/get-kube-binaries.sh
 cp -r server/bin/{kube-apiserver,kube-controller-manager,kube-scheduler,kubectl,kube-proxy,kubelet} /usr/local/bin/
 ```
 
