@@ -1,1 +1,1 @@
-# Shell Scripts for implementing kubernetes
+# Shell Scripts for implementing kubernetes on debian
