@@ -32,7 +32,7 @@ sudo apt install zsh
 sudo apt install curl
 
 cat >> ~/.zshrc <<EOF
-alias ll='ls -alh'
+alias ll='ls -alhG'
 EOF
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
