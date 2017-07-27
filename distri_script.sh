@@ -5,7 +5,7 @@
 MASTER='192.168.56.101'
 WORKER1='192.168.56.102'
 WORKER2='192.168.56.103'
-CONTENT='setup_etcd setup_kube clean.sh cluster_ip_vars.sh'
+CONTENT='setup_etcd setup_kube clean.sh client config lib setup_flannel'
 
 # Test ssh port
 for HOST in $MASTER $WORKER1 $WORKER2
