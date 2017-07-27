@@ -1,0 +1,11 @@
+# Flanneld configuration options
+
+# etcd url location.  Point this to the server where etcd runs
+ETCD_ENDPOINTS="https://10.0.2.11:2379,https://10.0.2.12:2379,https://10.0.2.13:2379"
+
+# etcd config key.  This is the configuration key that flannel queries
+# For address range assignment
+ETCD_PREFIX="/kube-debian/network"
+
+# Any additional options that you want to pass
+FLANNEL_OPTIONS="-etcd-cafile=/etc/kubernetes/ssl/ca.pem -etcd-certfile=/etc/kubernetes/ssl/kubernetes.pem -etcd-keyfile=/etc/kubernetes/ssl/kubernetes-key.pem"
