@@ -27,6 +27,16 @@ initializeANSI()
     reset="${esc}[0m"
 }
 
+check_cmd() {
+    if [ ! type $1 >/dev/null 2>&1 ] ; then
+        print_progress "command '$1' already exists"
+        return 0
+    else
+        print_progress "command '$1' doesn't exist"
+        return 1
+    fi
+}
+
 print_progress(){
     initializeANSI
     echo -e "\n${redf}**${reset} $1 \n"
