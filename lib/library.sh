@@ -14,9 +14,9 @@ initializeANSI()
     cyanf="${esc}[36m";      whitef="{esc}[37m"
 
     # Background colors
-    balckf="${esc}[40m";    redf="${esc}[41m";  greenf="{esc}[42m"
-    yellowf="${esc}[43m";    bluef="${esc}[44m";  purplef="{esc}[45m"
-    cyanf="${esc}[46m";      whitef="{esc}[47m"
+    balckb="${esc}[40m";    redb="${esc}[41m";  greenb="{esc}[42m"
+    yellowb="${esc}[43m";    blueb="${esc}[44m";  purpleb="{esc}[45m"
+    cyanb="${esc}[46m";      whiteb="{esc}[47m"
 
     # Bold, italic, underline, and inverse style toggles
     boldon="${esc}[1m";     boldoff="${esc}[22m"
