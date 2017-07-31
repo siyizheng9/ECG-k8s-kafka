@@ -3,6 +3,8 @@
 # get cluster machines' ip addresses
 . ../config/cluster_ip_vars.sh
 
+sudo cp bootstrap.kubeconfig kube-proxy.kubeconfig /etc/kubernetes/
+
 scp -r ssl  *.kubeconfig $USER@$WORKER1:$WORKDIR
 scp -r ssl *.kubeconfig $USER@$WORKER2:$WORKDIR
 
