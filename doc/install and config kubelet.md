@@ -106,9 +106,11 @@ check unauthorized CSR requeset
 kubectl get csr
 ```
 
-agreen to CSR request
+agree to CSR request
 
 ```bash
 kubectl certificate approve csr-xxxx
 kubectl get nodes
 ```
+
+**NOTE**: you have to agree to CSR requests several times, each time a new kubelet node is available.
