@@ -16,7 +16,17 @@ echo_color "finished cp files"
 
 # start kube-proxy service
 
-sudo systemctl daemon-reload
-sudo systemctl enable kube-proxy
-sudo systemctl start kube-proxy
+sudo systemctl is-active kube-proxy
+
+if [ $? -ne 0 ] ; then
+    echo_color 'Starting kube-poxy'
+    sudo systemctl daemon-reload
+    sudo systemctl enable kube-proxy
+    sudo systemctl start kube-proxy
+else
+    echo_color 'Restarting kube-poxy'
+    sudo systemctl daemon-reload
+    sudo systemctl restart kube-proxy
+fi
+
 sudo systemctl status kube-proxy --no-pager
