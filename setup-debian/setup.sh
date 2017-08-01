@@ -15,6 +15,8 @@ sudo apt install tmux
 
 cat >> ~/.vimrc <<EOF
 syntax on
+filetype indent on
+set hlsearch
 set nu
 set wildmenu
 imap jj <Esc> 
