@@ -57,7 +57,7 @@ echo_color "starting kublete service"
 sudo systemctl daemon-reload
 sudo systemctl enable kubelet
 sudo systemctl start kubelet
-sudo systemctl status kubelet
+sudo systemctl status kubelet --no-pager
 
 check_cmd kubectl
 if [ $? -ne 0 ] ; then

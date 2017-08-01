@@ -45,7 +45,7 @@ sudo etcdctl  --endpoints=https://10.0.2.11:2379,https://10.0.2.12:2379,https://
 echo "starting flannel"
 sudo systemctl daemon-reload
 sudo systemctl start flannel
-sudo systemctl status flannel
+sudo systemctl status flannel --no-pager
 
 # config docker bridge ip address
 echo "${yellowf} config docker bridge ${reset}"

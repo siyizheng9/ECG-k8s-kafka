@@ -26,7 +26,7 @@ echo 'enabling kube-apiserver'
 sudo systemctl daemon-reload
 sudo systemctl enable kube-apiserver
 sudo systemctl start kube-apiserver
-sudo systemctl status kube-apiserver
+sudo systemctl status kube-apiserver --no-pager
 echo 'end of enabling kube-apiserver'
 
 # Config and start kube-controller-manager
