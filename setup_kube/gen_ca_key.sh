@@ -162,3 +162,6 @@ kube-proxy-csr.json | cfssljson -bare kube-proxy
 # distripute generated certificates and private keys
 sudo mkdir -p /etc/kubernetes/ssl
 sudo cp *.pem /etc/kubernetes/ssl
+
+# check cert info
+# cfssl-certinfo -cert kubernetes.pem
