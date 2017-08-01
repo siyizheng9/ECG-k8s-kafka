@@ -30,3 +30,6 @@ else
 fi
 
 sudo systemctl status kube-proxy --no-pager
+
+# sudo journalctl -u kube-apiserver
+# sudo journalctl -u kubelet -l --no-pager | less 
