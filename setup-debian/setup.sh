@@ -36,6 +36,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 cat >> ~/.zshrc <<EOF
 alias ll='ls -alhG'
 EOF
-# mkdir ~/kubernetes
+
+mkdir ~/kubernetes
 
 
