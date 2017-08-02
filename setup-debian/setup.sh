@@ -39,6 +39,11 @@ EOF
 
 mkdir ~/kubernetes
 
+echo -e "k8s-controller-1    10.0.2.11\n\
+k8s-worker-1        10.0.2.12\n\
+k8s-worker-2        10.0.2.13" \
+| sudo tee -a /etc/hosts
+
 # set up interface
 # auto enp0s3
 # iface enp0s3 inet static
