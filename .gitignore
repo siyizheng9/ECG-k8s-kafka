@@ -1,0 +1,6 @@
+setup_auth/token.csv
+setup_auth/bootstrap.kubeconfig
+setup_auth/kube-proxy.kubeconfig
+setup_auth/ssl/ca.pem
+setup_auth/ssl/kube-proxy-key.pem
+setup_auth/ssl/kube-proxy.pem
