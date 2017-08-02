@@ -16,7 +16,7 @@ do
     if [ $online -eq 0 ]; then
         print_progress "$i Online"
         print_progress "rsync files to $i"
-        scp -r $CONTENT zsy@${i}:~/kubernetes/
+        rsync -ruv $CONTENT zsy@${i}:~/kubernetes/
     else
         print_progress "$i Offline"
     fi
