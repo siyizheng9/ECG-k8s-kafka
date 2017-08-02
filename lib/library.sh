@@ -28,7 +28,9 @@ initializeANSI()
 }
 
 check_cmd() {
-    if [ ! type $1 >/dev/null 2>&1 ] ; then
+    type $1 >/dev/null 2>&1
+    EXISTS=$?
+    if [ $EXISTS -eq 0 ] ; then
         print_progress "command '$1' already exists"
         return 0
     else
