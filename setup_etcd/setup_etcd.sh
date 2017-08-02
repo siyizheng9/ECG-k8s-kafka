@@ -71,3 +71,6 @@ sudo systemctl enable etcd
 sudo systemctl start etcd
 sudo systemctl status etcd --no-pager
 
+
+# if got cluster ID mismatch error
+# just stop service and sudo rm -r /var/lib/etcd/ in each node, then restart the service
