@@ -4,3 +4,6 @@ setup_auth/kube-proxy.kubeconfig
 setup_auth/ssl/ca.pem
 setup_auth/ssl/kube-proxy-key.pem
 setup_auth/ssl/kube-proxy.pem
+setup_client/ca.pem
+setup_client/admin.pem
+setup_client/admin-key.pem
