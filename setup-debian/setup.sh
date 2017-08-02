@@ -39,4 +39,21 @@ EOF
 
 mkdir ~/kubernetes
 
+# set up interface
+# auto enp0s3
+# iface enp0s3 inet static
+#         address 10.0.2.11
+#         network 10.0.2.0
+#         netmask 255.255.255.0
+#         broadcast 10.0.2.255
+#         gateway 10.0.2.1
 
+
+# set up interface
+# auto enp0s8
+# iface enp0s8 inet static
+# address 192.168.56.101
+#          network 192.168.56.0
+#          netmask 255.255.255.0
+#          broadcast 192.168.56.255
+#          gateway 192.168.56.1
