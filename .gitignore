@@ -7,3 +7,7 @@ setup_auth/ssl/kube-proxy.pem
 setup_client/ca.pem
 setup_client/admin.pem
 setup_client/admin-key.pem
+setup_dns_addon/kubedns-cm.yaml
+setup_dns_addon/kubedns-sa.yaml
+setup_dns_addon/kubedns-svc.yaml
+setup_dns_addon/kubedns-controller.yaml
