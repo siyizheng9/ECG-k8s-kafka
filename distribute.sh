@@ -6,7 +6,7 @@ HOST1='192.168.56.101'
 HOST2='192.168.56.102'
 HOST3='192.168.56.103'
 
-CONTENT='setup-debian gen_certs lib setup_etcd setup_controller setup_worker'
+CONTENT='setup-debian gen_certs lib setup*'
 
 for i in $HOST1 $HOST2 $HOST3
 do
