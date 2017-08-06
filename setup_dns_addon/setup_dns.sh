@@ -29,3 +29,6 @@ curl -sSLO $URL/kubedns-cm.yaml
 for i in kubedns-{sa,cm,controller,svc}.yaml; do
   kubectl --namespace=kube-system apply -f $i;
 done
+
+# check dns status 
+# kubectl --namespace=kube-system get pods
