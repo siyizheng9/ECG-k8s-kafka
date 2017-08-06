@@ -74,3 +74,9 @@ sudo systemctl status etcd --no-pager
 
 # if got cluster ID mismatch error
 # just stop service and sudo rm -r /var/lib/etcd/ in each node, then restart the service
+# check etcd cluster status 
+# sudo etcdctl \
+#   --ca-file=/etc/etcd/ca.pem \
+#   --cert-file=/etc/etcd/kubernetes.pem \
+#   --key-file=/etc/etcd/kubernetes-key.pem \
+#   cluster-health
