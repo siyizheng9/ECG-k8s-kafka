@@ -62,3 +62,7 @@ echo -e "10.0.2.11        k8s-controller-1\n\
 #          netmask 255.255.255.0
 #          broadcast 192.168.56.255
 #          gateway 192.168.56.1
+
+# set up dns
+# sudo vim /etc/resolv.conf
+# nameserver 8.8.8.8
