@@ -16,3 +16,7 @@
 **NOTE**: error may occur `certificate is valid for system:node`
 
 view discussions: [Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
+
+## Attach to a docker container
+
+`sudo docker exec -t -i 5d18e5f5a5a3 /bin/sh`
