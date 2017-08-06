@@ -11,3 +11,4 @@ setup_dns_addon/kubedns-cm.yaml
 setup_dns_addon/kubedns-sa.yaml
 setup_dns_addon/kubedns-svc.yaml
 setup_dns_addon/kubedns-controller.yaml
+setup_dashboard/kubernetes-dashboard.yaml
