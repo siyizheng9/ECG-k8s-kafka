@@ -9,5 +9,10 @@
 
 ## How to view logs
 
-**Via docker**:
-**via kubernetes**:
+**Via docker**: `sudo docker logs 83295ac7ff2e|more`
+
+**via kubernetes**: `kubectl --namespace=kube-system logs kube-dns-3097350089-kr0sp kubedns`
+
+**NOTE**: error may occur `certificate is valid for system:node`
+
+view discussions: [Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
