@@ -9,3 +9,4 @@ kubectl -n kube-system expose deployment kubernetes-dashboard \
 # add an iptables rule
 # sudo iptables -t nat -A PREROUTING -d 192.168.56.103 -p tcp -m tcp --dport 9090 -j DNAT --to-destination <podeIP>:9090
 # <podeIP> for example 10.200.1.5
+# Direct visiting 192.168.56.103:31513 should also work
