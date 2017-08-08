@@ -10,7 +10,7 @@ sudo mv ~/kube-proxy.kubeconfig /var/lib/kube-proxy
 
 # Move the TLS certs in place
 print_progress 'Moving TLS certs to the place'
-sudo mv ~/ca.pem /var/lib/kubernetes/
+sudo cp ~/ca.pem /var/lib/kubernetes/
 
 # Install Docker
 check_cmd docker
