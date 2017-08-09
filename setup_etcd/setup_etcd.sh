@@ -80,3 +80,6 @@ sudo systemctl status etcd --no-pager
 #   --cert-file=/etc/etcd/kubernetes.pem \
 #   --key-file=/etc/etcd/kubernetes-key.pem \
 #   cluster-health
+# export ETCDCTL_CA_FILE='/home/zsy/ca.pem'
+# export ETCDCTL_CERT_FILE='/home/zsy/kubernetes.pem'
+# export ETCDCTL_KEY_FILE='/home/zsy/kubernetes-key.pem'
