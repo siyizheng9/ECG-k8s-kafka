@@ -1,3 +1,6 @@
 k8s-controller-1    10.0.2.11
 k8s-worker-1        10.0.2.12
 k8s-worker-2        10.0.2.13
+debian-1            10.0.2.11
+debian-2            10.0.2.12
+debian-3            10.0.2.13
