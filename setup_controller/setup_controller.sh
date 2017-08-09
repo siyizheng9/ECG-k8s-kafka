@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Use kubectl to print the InternalIP and podCIDR for each worker node
+# kubectl get nodes \
+# --output=jsonpath='{range .items[*]}{.status.addresses[?(@.type=="InternalIP")].address} {.spec.podCIDR} {"\n"}{end}'
+
 . ../lib/library.sh
 
 # Copy the bootstrap token into place
