@@ -143,4 +143,4 @@ sudo systemctl status kubelet --no-pager
 # following fix
 # CLUSTER_CIDR should be same as --cluster-cidr in kube-controller-manager.service
 CLUSTER_CIDR="10.200.0.0/16"
-etcdctl set /coreos.com/network/config '{ "Network": ${CLUSTER_CIDR}, "Backend": {"Type": "vxlan"}}'
+etcdctl set /coreos.com/network/config '{ "Network": "10.200.0.0/16", "Backend": {"Type": "vxlan"}}'
