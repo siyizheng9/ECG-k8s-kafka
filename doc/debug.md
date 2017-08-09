@@ -1,5 +1,9 @@
 # A collection of debug info
 
+## Unable to kubectl exec or kubectl run
+
+[Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
+
 ## How to update kuerbnetes.pem
 
 1. Modify `kubernetes-csr.json`
