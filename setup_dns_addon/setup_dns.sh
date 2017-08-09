@@ -32,3 +32,5 @@ done
 
 # check dns status 
 # kubectl --namespace=kube-system get pods
+# test system availability
+# nslookup kube-dns.kube-system.svc.cluster.local 10.32.0.10
