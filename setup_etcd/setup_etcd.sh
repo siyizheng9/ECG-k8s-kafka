@@ -72,14 +72,21 @@ sudo systemctl start etcd
 sudo systemctl status etcd --no-pager
 
 
-# if got cluster ID mismatch error
+# If got cluster ID mismatch error
 # just stop service and sudo rm -r /var/lib/etcd/ in each node, then restart the service
+
 # check etcd cluster status 
-# sudo etcdctl \
-#   --ca-file=/etc/etcd/ca.pem \
-#   --cert-file=/etc/etcd/kubernetes.pem \
-#   --key-file=/etc/etcd/kubernetes-key.pem \
-#   cluster-health
+# ==> API version 2
 # export ETCDCTL_CA_FILE='/home/zsy/ca.pem'
 # export ETCDCTL_CERT_FILE='/home/zsy/kubernetes.pem'
 # export ETCDCTL_KEY_FILE='/home/zsy/kubernetes-key.pem'
+# sudo etcdctl cluster-health
+
+# ==> API version 3
+# export ETCDCTL_API=3
+# export ETCDCTL_CACERT='/home/zsy/ca.pem'
+# export ETCDCTL_CERT='/home/zsy/kubernetes.pem'
+# export ETCDCTL_KEY='/home/zsy/kubernetes-key.pem'
+# export ETCDCTL_ENDPOINTS='10.0.2.11:2379'
+# etcdctl endpoint health --endpoints=10.0.2.11:2379 -w json
+# etcdctl get "" --prefix=true --keys-only | less
