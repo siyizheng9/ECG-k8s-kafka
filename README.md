@@ -1,5 +1,19 @@
 # Implementation of Kubernetes from scratch
 
+## Components
+
+|  Component | Version|
+| -----------|--------|
+| etcd       |   v3.2.4  |
+| kube-apiserver       |   v1.7.0 |
+| kube-controller-manager       | v1.7.0 |
+| kube-scheduler |   v1.7.0  |
+| kube-proxy|  v1.6.1 |
+| kubelet |   v1.6.1|
+| kubectl | v1.6.1 |
+| docker |  v1.12.6 |
+| flannel |   v3.2.4  |
+
 ## Nodes and Components
 
 | Node          |   IP      | Components    |
