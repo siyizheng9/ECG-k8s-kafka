@@ -2,9 +2,9 @@
 
 . ./lib/library.sh
 
-HOST1='192.168.56.101'
-HOST2='192.168.56.102'
-HOST3='192.168.56.103'
+HOST1='192.168.1.101'
+HOST2='192.168.1.102'
+HOST3='192.168.1.103'
 
 CONTENT='setup-debian gen_certs lib setup*'
 
@@ -16,7 +16,7 @@ do
     if [ $online -eq 0 ]; then
         print_progress "$i Online"
         print_progress "rsync files to $i"
-        rsync -ruv $CONTENT zsy@${i}:~/kubernetes/
+        rsync -ruv $CONTENT zheng@${i}:~/kubernetes/
     else
         print_progress "$i Offline"
     fi

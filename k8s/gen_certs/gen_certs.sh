@@ -8,9 +8,9 @@
 # get cluster machines' ip addresses
 . ../lib/library.sh
 
-controller1='10.0.2.11'
-worker1='10.0.2.12'
-worker2='10.0.2.13'
+controller1="192.168.1.101"
+worker1="192.168.1.102"
+worker2="192.168.1.103"
 
 mkdir ssl
 cd ssl
@@ -124,11 +124,10 @@ cat > kubernetes-csr.json <<EOF
 {
     "CN": "kubernetes",
     "hosts": [
+      "${controller1}",
+      "${worker1}",
+      "${worker2}",
       "10.32.0.1",
-      "10.0.2.11",
-      "10.0.2.12",
-      "10.0.2.13",
-      "192.168.56.101",
       "127.0.0.1",
       "kubernetes",
       "kubernetes.default",
@@ -167,6 +166,16 @@ done
 for host in $controller1; do
     scp ca.pem ca-key.pem kubernetes-key.pem kubernetes.pem ${host}:~/
 done
+
+etcd1="192.168.1.101"
+etcd2="192.168.1.102"
+etcd3="192.168.1.103"
+
+for host in $etcd1 $etcd2 $etcd3; do
+    scp kubernetes-key.pem kubernetes.pem ${host}:~/
+done
+
+
 
 # check cert info
 # cfssl-certinfo -cert kubernetes.pem

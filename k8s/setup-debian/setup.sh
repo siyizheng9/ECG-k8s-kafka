@@ -8,7 +8,7 @@
 sudo apt -y install vim
 
 # install netstat
-sudo apt -y install net-tools
+sudo apt -y install net-tools tcpdump conntrack
 
 # install tmux
 sudo apt -y install tmux
@@ -20,11 +20,6 @@ set wildmenu
 imap jj <Esc> 
 nnoremap ; :
 EOF
-
-# install docker
-# wget https://download.docker.com/linux/debian/dists/stretch/pool/stable/amd64/docker-ce_17.03.2~ce-0~debian-stretch_amd64.deb
-# sudo dpkg -i $(ls docker*)
-# sudo usermod -aG docker $USER
 
 # install and setup zsh
 sudo apt -y install git

@@ -4,6 +4,15 @@
 
 [Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
 
+## networking problems
+
+**container cannot communicate with apiserver (10.32.0.1)**:
+
+* docker wasn't installed corretly or not configured corretcly
+* don't install docker through apt or yum, or docker should be configured with `--iptables=false` and `--ip-masq=false`
+
+refer: [kuberntes docker](https://kubernetes.io/docs/getting-started-guides/scratch/#docker)
+
 ## How to update kuerbnetes.pem
 
 1. Modify `kubernetes-csr.json`

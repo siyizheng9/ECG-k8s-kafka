@@ -2,8 +2,8 @@
 
 . ../lib/library.sh
 
-MASTER='192.168.56.101'
-USER='zsy'
+MASTER='192.168.1.101'
+USER='zheng'
 CONTENT='~/kubernetes/gen_certs/ssl/{ca,admin*}.pem'
 
 # check if kubectl was already installed
@@ -22,7 +22,7 @@ fi
 # get certificate files
 scp $USER@$MASTER:$CONTENT .
 # Configure Kubectl
-KUBERNETES_PUBLIC_ADDRESS='192.168.56.101'
+KUBERNETES_PUBLIC_ADDRESS='192.168.1.101'
 
 # Build up the kubeconfig entry
 kubectl config set-cluster kubernetes \

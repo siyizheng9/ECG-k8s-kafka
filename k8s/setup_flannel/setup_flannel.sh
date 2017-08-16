@@ -2,6 +2,10 @@
 
 . ../lib/library.sh
 
+etcd1="192.168.1.101"
+etcd2="192.168.1.102"
+etcd3="192.168.1.103"
+
 sudo mkdir -p /etc/kubernetes/ssl
 
 sudo cp ~/ca.pem /etc/kubernetes/ssl/ca.pem
@@ -23,7 +27,7 @@ fi
 
 # Create the etcd systemd unit file
 FLANNELD_IFACE=$(hostname -I|awk '{print $1}')
-FLANNELD_ETCD_ENDPOINTS="https://10.0.2.11:2379,https://10.0.2.12:2379,https://10.0.2.13:2379"
+FLANNELD_ETCD_ENDPOINTS="https://${etcd1}:2379,https://${etcd2}:2379,https://${etcd3}:2379"
 
 
 print_progress 'Creating flannel systemd unit file'

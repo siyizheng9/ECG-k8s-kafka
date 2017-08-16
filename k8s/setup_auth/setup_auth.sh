@@ -1,9 +1,9 @@
 #!/bin/bash
 
-MASTER='192.168.56.101'
-USER='zsy'
+MASTER='192.168.1.101'
+USER='zheng'
 CONTENT='~/kubernetes/gen_certs/ssl/{ca,kube-proxy*}.pem'
-controller1='10.0.2.11'
+controller1='192.168.1.101'
 
 . ../lib/library.sh
 
@@ -40,7 +40,7 @@ EOF
 # distribute the bootstrap token file to controller
 print_progress 'distributing bootstrap token'
 for host in $MASTER; do
-    scp token.csv ${host}:~/
+    scp token.csv $USER@${host}:~/
 done
 
 # Create the bootstrap kubeconfig file
@@ -85,10 +85,10 @@ kubectl config set-context default \
 kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
 
 # Distribute the client kubeconfig files
-worker1='192.168.56.102'
-worker2='192.168.56.103'
+worker1='192.168.1.102'
+worker2='192.168.1.103'
 
 print_progress 'Distribute the client kubeconfig files'
 for host in $worker1 $worker2; do
-    scp bootstrap.kubeconfig kube-proxy.kubeconfig ${host}:~/
+    scp bootstrap.kubeconfig kube-proxy.kubeconfig ${USER}@${host}:~/
 done

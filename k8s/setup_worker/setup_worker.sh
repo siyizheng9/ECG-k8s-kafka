@@ -22,35 +22,35 @@ else
     wget https://get.docker.com/builds/Linux/x86_64/docker-1.12.6.tgz
     tar -xvf docker-1.12.6.tgz
     sudo cp docker/docker* /usr/bin/
-fi
+    # Create the Docker systemd unit file
+    print_progress 'Creating Docker systemd unit file'
+    cat > docker.service <<EOF
+    [Unit]
+    Description=Docker Application Container Engine
+    Documentation=http://docs.docker.io
 
-# Create the Docker systemd unit file
-print_progress 'Creating Docker systemd unit file'
-cat > docker.service <<EOF
-[Unit]
-Description=Docker Application Container Engine
-Documentation=http://docs.docker.io
+    [Service]
+    ExecStart=/usr/bin/docker daemon \\
+      --iptables=false \\
+      --ip-masq=false \\
+      --host=unix:///var/run/docker.sock \\
+      --log-level=error \\
+      --storage-driver=overlay
+    Restart=on-failure
+    RestartSec=5
 
-[Service]
-ExecStart=/usr/bin/docker daemon \\
-  --iptables=false \\
-  --ip-masq=false \\
-  --host=unix:///var/run/docker.sock \\
-  --log-level=error \\
-  --storage-driver=overlay
-Restart=on-failure
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 EOF
 
-# Start the docker service
-sudo mv docker.service /etc/systemd/system/docker.service
-sudo systemctl daemon-reload
-sudo systemctl enable docker
-sudo systemctl start docker
-sudo docker version
+    # Start the docker service
+    sudo mv docker.service /etc/systemd/system/docker.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable docker
+    sudo systemctl start docker
+    sudo docker version
+fi
+
 
 # Install the kubelet
 # Download and install CNI plugins

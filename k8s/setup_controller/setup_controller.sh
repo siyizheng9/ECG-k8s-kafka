@@ -6,6 +6,10 @@
 
 . ../lib/library.sh
 
+etcd1="192.168.1.101"
+etcd2="192.168.1.102"
+etcd3="192.168.1.103"
+
 # Copy the bootstrap token into place
 sudo mkdir -p /var/lib/kubernetes/
 sudo mv ~/token.csv /var/lib/kubernetes/
@@ -20,7 +24,7 @@ if [ $installed -eq 0 ]
 then
     echo >&2 "kubectl already installed"
 else
-    # dowload etcd binaries
+    # dowload kubernetes binaries
     print_progress 'Dowloading Kubernetes controller binaries'
     wget https://storage.googleapis.com/kubernetes-release/release/v1.7.0/bin/linux/amd64/kube-apiserver
     wget https://storage.googleapis.com/kubernetes-release/release/v1.7.0/bin/linux/amd64/kube-controller-manager
@@ -60,7 +64,7 @@ ExecStart=/usr/bin/kube-apiserver \\
   --etcd-cafile=/var/lib/kubernetes/ca.pem \\
   --etcd-certfile=/var/lib/kubernetes/kubernetes.pem \\
   --etcd-keyfile=/var/lib/kubernetes/kubernetes-key.pem \\
-  --etcd-servers=https://10.0.2.11:2379,https://10.0.2.12:2379,https://10.0.2.13:2379 \\
+  --etcd-servers=https://${etcd1}:2379,https://${etcd2}:2379,https://${etcd3}:2379 \\
   --event-ttl=1h \\
   --experimental-bootstrap-token-auth \\
   --insecure-bind-address=0.0.0.0 \\
