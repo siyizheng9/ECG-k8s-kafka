@@ -18,9 +18,9 @@
 
 | Node          |   IP      | Components    |
 | ------------- |-----------|:-------------:|
-| controller1   | 10.0.2.11 | etcd, kube-apiserver, kube-controller-manager, kube-scheduler|
-| worker1       | 10.0.2.12 | etcd, docker, flannel, kube-proxy, kubelet        |
-| worker2       | 10.0.2.13 | etcd, docker, flannel, kube-proxy, kubelet        |
+| controller1   | 192.168.1.101 | etcd, kube-apiserver, kube-controller-manager, kube-scheduler|
+| worker1       | 192.168.1.102 | etcd, docker, flannel, kube-proxy, kubelet        |
+| worker2       | 192.168.1.103 | etcd, docker, flannel, kube-proxy, kubelet        |
 
 ## TLS certificates
 
