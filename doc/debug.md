@@ -117,6 +117,10 @@ The connection between broker and producers seems works on a two-phase manner:
 
 the domain name resolution issue can be solved by addding corresponding records to `/etc/hosts`.
 
+**[Accessing kafka from outside kubernetes](https://groups.google.com/forum/#!topic/kubernetes-users/xuRkkZwvrDU)**
+
+**[How to publish/consume messages from outside of Kubernetes Cluster](https://stackoverflow.com/questions/41868161/kafka-in-kubernetes-cluster-how-to-publish-consume-messages-from-outside-of-kub)**
+
 ## References
 
 [kubernetes-handbook](https://github.com/feiskyer/kubernetes-handbook/blob/master/deploy/centos/create-tls-and-secret-key.md)
