@@ -1,5 +1,23 @@
 # A collection of debug info
 
+## kubernetes dns
+
+[Namespaces and DNS](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+[headless service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+[statefulset dns](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+
+When you create a Service, it creates a corresponding DNS entry. This entry is of the form `<service-name>.<namespace-name>.svc.cluster.local`, which means that if a container just uses `<service-name>` it will resolve to the service which is local to a namespace. This is useful for using the same configuration across multiple namespaces such as Development, Staging and Production. If you want to reach across namespaces, you need to use the fully qualified domain name (FQDN).
+
+for example:
+
+with a `service` in namespace `kafka`
+the pod in the same namespace (kafka) can resolve the domain with `nslookup service_name`, while
+a pod in the default namespace should resove it with command `nslookup service_name.kafka`.
+
+check `/etc/resolve.conf` file to see differences
+
+
+
 ## Unable to kubectl exec or kubectl run
 
 [Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
