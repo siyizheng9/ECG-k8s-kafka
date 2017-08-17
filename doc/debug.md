@@ -106,6 +106,16 @@ etcdctl get "" --prefix=true --keys-only | less
 [Indefinite log retention on kafka](https://stackoverflow.com/questions/32818820/indefinite-log-retention-on-kafka)
 To keep messages indefinitely set options like `log.retention.hours` and `log.retention.bytes` to `-1`
 
+[When does the Apache Kafka client throw a “Batch Expired” exception?](https://stackoverflow.com/questions/34794260/when-does-the-apache-kafka-client-throw-a-batch-expired-exception)
+
+The connection between broker and producers seems works on a two-phase manner:
+
+1. the producer connects to the broker through the `host:port` list provided by `--broker-list`
+1. the broker will broadcast broker list through `domain.name`
+1. the consecutive connection will be esatablished through `domain.name:9092`
+
+the domain name resolution issue can be solved by addding corresponding records to `/etc/hosts`.
+
 ## References
 
 [kubernetes-handbook](https://github.com/feiskyer/kubernetes-handbook/blob/master/deploy/centos/create-tls-and-secret-key.md)
