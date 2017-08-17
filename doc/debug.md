@@ -45,6 +45,7 @@ refer: [kuberntes docker](https://kubernetes.io/docs/getting-started-guides/scra
 **NOTE**: error may occur `certificate is valid for system:node`
 
 view discussions: [Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
+[cannot kubectl exec into pods](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/159)
 
 ## Attach to a docker container
 
