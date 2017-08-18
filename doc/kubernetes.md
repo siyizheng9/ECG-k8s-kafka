@@ -1,6 +1,20 @@
 # A collection of kubernetes debug info
 
-## kubernetes dns
+## Kubernetes RBAC
+
+If a client certificate is presented and verified, the **common name of the subject** is used as the user name for the request.
+
+Certificates can also indicate a user’s __group memberships__ using the certificate’s __organization fields__.
+
+If the pod does not have a `ServiceAccount` set, it sets the `ServiceAccount` to `default`.
+
+[Managing Service Accounts](https://kubernetes.io/docs/admin/service-accounts-admin/)
+
+[Authenticating](https://kubernetes.io/docs/admin/authentication/)
+
+[Using RBAC Authorization](https://kubernetes.io/docs/admin/authorization/rbac/)
+
+## Kubernetes DNS
 
 [Namespaces and DNS](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 [headless service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
@@ -14,29 +28,33 @@ with a `service` in namespace `kafka`
 the pod in the same namespace (kafka) can resolve the domain with `nslookup service_name`, while
 a pod in the default namespace should resove it with command `nslookup service_name.kafka`.
 
-check `/etc/resolve.conf` file to see differences
+check `/etc/resolve.conf` fil
 
-## Unable to kubectl exec or kubectl run
+## Kubernetes network plugins
 
-[Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
+[Network Plugins](https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/)
 
-## networking problems
+### Flannel
 
-**container cannot communicate with apiserver (10.32.0.1)**:
+[Running Flannel](https://coreos.com/flannel/docs/latest/running.html)
 
-* docker wasn't installed corretly or not configured corretcly
-* don't install docker through apt or yum, or docker should be configured with `--iptables=false` and `--ip-masq=false`
+[Flannel Configuration](https://coreos.com/flannel/docs/latest/configuration.html)
 
-refer: [kuberntes docker](https://kubernetes.io/docs/getting-started-guides/scratch/#docker)
+[deploy flannel with cni](https://coreos.com/kubernetes/docs/latest/deploy-workers.html)
 
-## How to update kuerbnetes.pem
+[deploy falnnel manually](https://github.com/feiskyer/kubernetes-handbook/blob/master/deploy/centos/node-installation.md)
+e to see differences
+
+## How-to
+
+### How to update kuerbnetes.pem
 
 1. Modify `kubernetes-csr.json`
 1. Generate new pem files
 1. Distribute new pem files to the host: nodes will use kubernetes.pem (cotrollers, etcd nodes)
 1. Move them to the corret folders (controller:/var/lib/kubernetes/, etcd nodes: /etc/etcd/)
 
-## How to view logs
+### How to view logs
 
 **Via docker**: `sudo docker logs 83295ac7ff2e|more`
 
@@ -47,11 +65,27 @@ refer: [kuberntes docker](https://kubernetes.io/docs/getting-started-guides/scra
 view discussions: [Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
 [cannot kubectl exec into pods](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/159)
 
-## Attach to a docker container
+### Attach to a docker container
 
 `sudo docker exec -t -i 5d18e5f5a5a3 /bin/sh`
 
-## Problems with flannel and etcd v2 & v3
+
+## Problems
+
+### Unable to kubectl exec or kubectl run
+
+[Unable to kubectl exec or kubectl run](https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/146)
+
+### Networking issue
+
+**container cannot communicate with apiserver (10.32.0.1)**:
+
+* docker wasn't installed corretly or not configured corretcly
+* don't install docker through apt or yum, or docker should be configured with `--iptables=false` and `--ip-masq=false`
+
+refer: [kuberntes docker](https://kubernetes.io/docs/getting-started-guides/scratch/#docker)
+
+### Problems with flannel and etcd v2 & v3
 
 [Flannel + etcdv3?](https://github.com/coreos/flannel/issues/554)
 
@@ -87,20 +121,6 @@ etcdctl get "" --prefix=true --keys-only | less
 ```
 
 [etcdctl API3](https://github.com/coreos/etcd/tree/master/etcdctl)
-
-## Kubernetes network plugins
-
-[Network Plugins](https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/)
-
-### Flannel
-
-[Running Flannel](https://coreos.com/flannel/docs/latest/running.html)
-
-[Flannel Configuration](https://coreos.com/flannel/docs/latest/configuration.html)
-
-[deploy flannel with cni](https://coreos.com/kubernetes/docs/latest/deploy-workers.html)
-
-[deploy falnnel manually](https://github.com/feiskyer/kubernetes-handbook/blob/master/deploy/centos/node-installation.md)
 
 ## References
 
