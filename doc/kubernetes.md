@@ -1,4 +1,4 @@
-# A collection of debug info
+# A collection of kubernetes debug info
 
 ## kubernetes dns
 
