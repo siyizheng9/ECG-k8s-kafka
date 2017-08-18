@@ -69,7 +69,6 @@ view discussions: [Unable to kubectl exec or kubectl run](https://github.com/kel
 
 `sudo docker exec -t -i 5d18e5f5a5a3 /bin/sh`
 
-
 ## Problems
 
 ### Unable to kubectl exec or kubectl run
