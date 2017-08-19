@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debian
+  namespace: default
+spec:
+  containers:
+  - image: debian
+    command:
+      - sleep
+      - "3600000"
+    imagePullPolicy: IfNotPresent
+    name: debian
+  restartPolicy: Always
