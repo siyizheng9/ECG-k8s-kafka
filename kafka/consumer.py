@@ -5,8 +5,8 @@ from kafka import TopicPartition
 
 
 def test():
-    topics=['test-basic-with-kafkacat','test']
-    server='kafka-0.broker.kafka.svc.cluster.local'
+    topics = ['test-basic-with-kafkacat', 'test']
+    server = 'kafka-0.broker.kafka.svc.cluster.local'
 
     consumer = KafkaConsumer(bootstrap_servers=server)
 
@@ -23,7 +23,8 @@ def test():
     consumer.seek(partition, 100)
 
     for msg in consumer:
-        print ("partition:%s offset:%s value:%s" % (msg.partition, msg.offset, msg.value))
+        print("partition:%s offset:%s value:%s" %
+              (msg.partition, msg.offset, msg.value))
 
 
 if __name__ == '__main__':
