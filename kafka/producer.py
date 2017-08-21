@@ -2,8 +2,8 @@
 
 from kafka import KafkaProducer
 
-topic='test'
-server='kafka-0.broker.kafka.svc.cluster.local'
+topic = 'test'
+server = 'kafka-0.broker.kafka.svc.cluster.local'
 
 producer = KafkaProducer(bootstrap_servers=server)
 
