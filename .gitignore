@@ -13,3 +13,4 @@ k8s/setup_dns_addon/kubedns-svc.yaml
 k8s/setup_dns_addon/kubedns-controller.yaml
 k8s/setup_dashboard/kubernetes-dashboard.yaml
 .vscode/*
+mqtt/python/mqtt-test.py
