@@ -48,6 +48,8 @@ the domain name resolution issue can be solved by addding corresponding records 
 
 **[How to publish/consume messages from outside of Kubernetes Cluster](https://stackoverflow.com/questions/41868161/kafka-in-kubernetes-cluster-how-to-publish-consume-messages-from-outside-of-kub)**
 
+**[External service for kafka not working](https://github.com/Yolean/kubernetes-kafka/issues/13)**
+
 ## references
 
 [Kafka on Kubernetes](https://github.com/Yolean/kubernetes-kafka)
