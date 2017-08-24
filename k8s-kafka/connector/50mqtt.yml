@@ -1,0 +1,14 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mqtt-connector-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mqtt-connector
+    spec:
+      containers:
+      - name: mqtt-connector
+        image: zsy9docker/kafka_mqtt_connector
