@@ -12,3 +12,10 @@ spec:
       containers:
       - name: mqtt-connector
         image: zsy9docker/kafka_mqtt_connector
+        volumeMounts:
+        - name: config
+          mountPath: /opt/kafka/config/mqtt
+      volumes:
+      - name: config
+        configMap:
+          name: kafka-mqtt-connect-config
