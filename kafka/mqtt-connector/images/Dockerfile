@@ -2,7 +2,7 @@ FROM openshine/kafka:0.11.0.0
 
 WORKDIR /opt/kafka
 
-COPY kafka-connect-mqtt-1.0.jar ./libs/
+COPY kafka-connect-mqtt-1.1-SNAPSHOT.jar ./libs/
 COPY org.eclipse.paho.client.mqttv3-1.0.2.jar ./libs/
 
 RUN mkdir ./config/mqtt
