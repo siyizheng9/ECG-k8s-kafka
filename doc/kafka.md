@@ -50,6 +50,13 @@ the domain name resolution issue can be solved by addding corresponding records 
 
 **[External service for kafka not working](https://github.com/Yolean/kubernetes-kafka/issues/13)**
 
+## Kafka connector REST Interface
+
+[REST Interface](http://docs.confluent.io/3.0.0/connect/userguide.html#rest-interface)
+
+`curl -s localhost:8083/connectors/mqtt/status | jq`
+`curl -s localhost:8083/connectors/mqtt/tasks | jq`
+
 ## references
 
 [Kafka on Kubernetes](https://github.com/Yolean/kubernetes-kafka)
