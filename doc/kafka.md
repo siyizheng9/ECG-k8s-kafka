@@ -57,6 +57,10 @@ the domain name resolution issue can be solved by addding corresponding records 
 `curl -s localhost:8083/connectors/mqtt/status | jq`
 `curl -s localhost:8083/connectors/mqtt/tasks | jq`
 
+`curl -s localhost:8083/connectors/mqtt/status | jq '.tasks[0].state`
+
+`state=$(curl -s localhost:8083/connectors/MyMongoDbSinkConnector/status|jq '.tasks[0].state'| tr -d '"');if [[ $state == 'FAILED' ]]; then exit 1; else exit 0; fi`
+
 ## references
 
 [Kafka on Kubernetes](https://github.com/Yolean/kubernetes-kafka)
