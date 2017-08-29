@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tensorflow-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+    spec:
+      containers:
+      - name: tensorflow
+        image: tensorflow/tensorflow:latest-py3
+        env:
+        - name: PASSWORD
+          value: "123456"
+        ports:
+        - containerPort: 8888
+        - containerPort: 6006

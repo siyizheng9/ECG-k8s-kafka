@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: tensorflow-svc
+  name: tensorflow-svc
+spec:
+  type: NodePort
+  ports:
+    - port: 8888
+      targetPort: 8888
+      nodePort: 30888
+      name: ipython
+    - port: 6006
+      targetPort: 6006
+      nodePort: 30606
+      name: tensorboard
+  selector:
+    app: tensorflow
