@@ -18,3 +18,11 @@ Port 1883 (MQTT) 9001 (Websocket MQTT)
 
 > You should only need to run MQTT over websockets if you intend to publish/subscribe to messages directly from within webapps (in page).
 [stackoverflow](https://stackoverflow.com/questions/30624897/direct-mqtt-vs-mqtt-over-websocket)
+
+## setup websockets through ssh tunnel
+
+example:
+
+`ssh -f -N -R 30831:192.168.1.101:30831 <username>@<remote server>`
+
+`ssh -fN -L 30831:localhost:30831 <remote server>`

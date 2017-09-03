@@ -10,5 +10,10 @@ spec:
     - port: 1883
       targetPort: 1883
       nodePort: 30830
+      name: mqtt
+    - port: 1884
+      targetPort: 1884
+      nodePort: 30831
+      name: websockets
   selector:
     app: mqtt-broker
