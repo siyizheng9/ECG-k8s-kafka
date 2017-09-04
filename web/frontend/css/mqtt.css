@@ -7,6 +7,7 @@ ul#messageList {
 #mqtt_mesg_div{
     width : 25em;
     height: 20em; 
+    display: inline-block;
 }
 
 ul#server_info_ul > li{
@@ -16,4 +17,8 @@ ul#server_info_ul > li{
 
 div#server_info {
     width: 60%;
+}
+
+#ecg_demo{
+    display: inline-block;
 }
