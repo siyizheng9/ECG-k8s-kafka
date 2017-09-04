@@ -10,38 +10,57 @@
         <link rel="stylesheet" type="text/css" href="css/mqtt.css">
     </head>
     <body>
-        <div id="page">
+        <div id="page" class="container">
+
             <div class="page-header">
                 <h1 id="header">MQTT JS Client</h1>
             </div>
 
             <div id="server_info" class="panel panel-default">
+
                 <div class="panel-heading">
-                    <h3 class="panel-title">Server Info</h3>
+                    <h3 class="panel-title">Server Info <span id="server_status" class="label label-default">status</span> </h3>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Host</span>
+                    <input id="server_host"  type="text" class="form-control" placeholder="Host name or ip address" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Port</span>
+                    <input id="server_port" type="text" class="form-control" placeholder="Port number" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Topic</span>
+                    <input id="server_topic" type="text" class="form-control" placeholder="Topic to subscribe" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Client ID</span>
+                    <input id="client_id" type="text" class="form-control" placeholder="Client ID" aria-describedby="basic-addon1">
+                </div>
+                <button id="connect_btn" type="button" class="btn btn-default">Connect</buttdon>
+
+            </div> <!-- end of server_info div -->
+
+            <div id="mqtt_message" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">MQTT MESSAGE LOG <span id="msg_log_btn" class="label label-success">enabled</span></h3>
                 </div>
                 <div class="panel-body">
-                    <ul id="server_info_ul" class="list-group">
-                        <li id="server_host" class="list-group-item">host: </li>
-                        <li id="server_port" class="list-group-item">port: </li>
-                        <li id="server_topic" class="list-group-item">topic: </li>
-                        <li id="server_status" class="list-group-item">status: unconnected </li>
-                        <li>
-                            <button id="connect_btn" type="button" class="btn btn-default">Connect</button>
-                        </li>
+                    <ul id="messageList">
                     </ul>
+                </div>
+            </div> <!-- end of mqtt_message div -->
+
+            <div id="ecg_demo" class="panel panel-default">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    <canvas id="demo" width=800 height=300></canvas><br>
                 </div>
             </div>
 
-            <div id="mqtt_mesg_div">
-                <h3>Message log</h3>
-                <button id="msg_log_btn" type="button" class="btn btn-default">enabled</button>
-                <ul id="messageList">
-                </ul>
-            </div>
-            <div id="ecg_demo">
-                <canvas id="demo" width=500 height=300></canvas><br>
-            </div>
-        </div>
+        </div> <!-- end of div page -->
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

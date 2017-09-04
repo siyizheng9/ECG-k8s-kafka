@@ -1,25 +1,25 @@
 ul#messageList {
     overflow: scroll;
     width : 20em;
-    height: 15em;
-    margin: 5px;
-}
-
-#mqtt_mesg_div{
-    width : 25em;
-    height: 20em; 
-    display: inline-block;
-}
-
-ul#server_info_ul > li{
-    display: inline;
+    height: 10em;
     margin: 5px;
 }
 
 div#server_info {
-    width: 60%;
+    width: 45%;
+    display: inline-block;
+}
+
+div#mqtt_message {
+    width: 45%;
+    display: inline-block;
 }
 
 #ecg_demo{
     display: inline-block;
+    width: 90%;
+}
+
+#msg_log_btn{
+    cursor: pointer;
 }
