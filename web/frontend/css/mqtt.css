@@ -4,6 +4,11 @@ ul#messageList {
     height: 15em;
 }
 
+#mqtt_mesg_div{
+    width : 25em;
+    height: 20em; 
+}
+
 ul#server_info_ul > li{
     display: inline;
     margin: 5px;
