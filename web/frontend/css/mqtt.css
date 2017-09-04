@@ -2,6 +2,7 @@ ul#messageList {
     overflow: scroll;
     width : 20em;
     height: 15em;
+    margin: 5px;
 }
 
 #mqtt_mesg_div{
