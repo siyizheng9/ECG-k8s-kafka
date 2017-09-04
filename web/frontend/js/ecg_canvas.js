@@ -12,7 +12,7 @@ ctx.lineWidth = 1;
 var i = 0;
 var data = ecg_data;
 
-function updatePYval(){
+function randomPYval(){
     //py = (parseInt(Math.round(data[i])/h));
     py = (parseInt(data[i].data) / 1000 * h);
     i++;
@@ -20,11 +20,15 @@ function updatePYval(){
         i = 0;
 }
 
+function updatePYval(yVal) {
+    py = parseInt(yVal) / 1000 * h;
+}
+
 loop();
 
 function loop() {
 
-    updatePYval();
+    //randomPYval();
 
     px += speed;
 
