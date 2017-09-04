@@ -9,8 +9,10 @@ server.topic = "paho/test/simple"
 client = new Paho.MQTT.Client(server.hostname, Number(server.port), "mqtt_js_client_test");
 
 document.getElementById("connect_btn").addEventListener("click", OnconnectBtnClick);
+document.getElementById("msg_log_btn").addEventListener("click", OnMsgLogBtnClick);
 
 isConnected = false;
+isLogMsg = true;
 
 function OnconnectBtnClick() {
   if (isConnected == false)
@@ -19,6 +21,15 @@ function OnconnectBtnClick() {
     disConnect(client);
 }
 
+function OnMsgLogBtnClick() {
+  btn_item = document.getElementById("msg_log_btn")
+  if (isLogMsg == true) {
+    btn_item.innerText = "disabled"
+  } else {
+    btn_item.innerText = "enabled"
+  }
+  isLogMsg = !isLogMsg;
+}
 // connect to the server 
 function ConnectToServer(client, server) {
   console.log("connect btn clicked");
@@ -62,7 +73,13 @@ function onConnectionLost(responseObject) {
 // called when a message arrives
 function onMessageArrived(message) {
   console.log("onMessageArrived:" + message.payloadString);
-  writeMessage(message.payloadString);
+  var msg = message.payloadString;
+  if (isLogMsg)
+     writeMessage(msg);
+  // get ecg data
+  ecg_data = msg.split(',')[1];
+  updatePYval(ecg_data);
+
 }
 
 // write message to web page
