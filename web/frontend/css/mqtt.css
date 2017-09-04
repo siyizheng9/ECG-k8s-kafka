@@ -1,5 +1,9 @@
-ul {
+ul#messageList {
     overflow: scroll;
     width : 20em;
     height: 15em;
+}
+
+ul#server_info > li{
+    display: inline;
 }
