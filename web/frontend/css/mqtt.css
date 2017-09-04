@@ -6,4 +6,5 @@ ul#messageList {
 
 ul#server_info > li{
     display: inline;
+    margin: 5px;
 }

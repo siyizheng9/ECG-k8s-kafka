@@ -56,19 +56,19 @@ function writeMessage(message) {
 // write server info
 function writeServerInfo(server) {
   el_host = document.getElementById("server_host");
-  el_host.innerHTML = "host:" + server.hostname;
+  el_host.innerHTML = "host: " + server.hostname;
 
   el_port = document.getElementById("server_port");
-  el_port.innerHTML = "port:" + server.port;
+  el_port.innerHTML = "port: " + server.port;
 
   el_topic = document.getElementById("server_topic");
-  el_topic.innerHTML = "topic:" + server.topic;
+  el_topic.innerHTML = "topic: " + server.topic;
 
 }
 
 // update connection status
 function updateStatus(status) {
   el_status = document.getElementById("server_status");
-  el_status.innerHTML = "status:" + status;
+  el_status.innerHTML = "status: " + status;
 
 }
