@@ -14,16 +14,24 @@
             <div class="page-header">
                 <h1 id="header">MQTT JS Client</h1>
             </div>
-            <h2 >server info</h2>
-            <ul id="server_info" class="list-group">
-                <li id="server_host" class="list-group-item">host: </li>
-                <li id="server_port" class="list-group-item">port: </li>
-                <li id="server_topic" class="list-group-item">topic: </li>
-                <li id="server_status" class="list-group-item">status: unconnected </li>
-                <li >
-                <button id="connect_btn" type="button" class="btn btn-default">Connect</button>
-                </li>
-            </ul>
+
+            <div id="server_info" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Server Info</h3>
+                </div>
+                <div class="panel-body">
+                    <ul id="server_info_ul" class="list-group">
+                        <li id="server_host" class="list-group-item">host: </li>
+                        <li id="server_port" class="list-group-item">port: </li>
+                        <li id="server_topic" class="list-group-item">topic: </li>
+                        <li id="server_status" class="list-group-item">status: unconnected </li>
+                        <li >
+                            <button id="connect_btn" type="button" class="btn btn-default">Connect</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <h3>Message:</h3>
             <ul id="messageList">
             </ul>
