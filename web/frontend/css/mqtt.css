@@ -1,5 +1,5 @@
 ul#messageList {
-    overflow: scroll;
+    overflow: auto;
     height: 10em;
 }
 
