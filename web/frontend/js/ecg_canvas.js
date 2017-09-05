@@ -1,13 +1,37 @@
-demo = document.getElementById("demo")
-var ctx = demo.getContext('2d'),
-w = demo.width,
-h = demo.height,
-px = 0, opx = 0, speed = 1,
-py = h * 0.8, opy = py,
-scanBarWidth = 15;
+var demo = document.getElementById("demo");
 
-ctx.strokeStyle = '#00bd00';
-ctx.lineWidth = 1;
+var ctx, w, h, px, opx, speed, py, opy, scanBarWidth;
+
+initCanvas();
+
+window.addEventListener('resize', initCanvas, true);
+
+function initCanvas() {
+
+    var parent_el = demo.parentElement;
+    var parent_width = parent_el.offsetWidth;
+    //var parent_height = parent_el.offsetHeight;
+    var parent_padding = $(parent_el).css('padding-left');
+    
+    demo.width = parent_width - 2 * parseInt(parent_padding);
+    //demo.height = parent_height - 2 * parseInt(parent_padding);
+
+    initCtx();
+}
+
+function initCtx() {
+
+    ctx = demo.getContext('2d');
+    w = demo.width;
+    h = demo.height;
+    px = 0, opx = 0, speed = 1;
+    py = h * 0.8, opy = py;
+    scanBarWidth = 15;
+    
+    ctx.strokeStyle = '#00bd00';
+    ctx.lineWidth = 1;
+
+}
 
 var i = 0;
 var data = ecg_data;
