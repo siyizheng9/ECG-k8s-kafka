@@ -18,6 +18,6 @@ div#mqtt_message {
     width: 90%;
 }
 
-#msg_log_btn{
+#msg_log_btn, #msg_clear_btn{
     cursor: pointer;
 }

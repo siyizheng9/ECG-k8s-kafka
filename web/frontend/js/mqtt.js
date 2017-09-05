@@ -7,19 +7,23 @@ connection.port = 30831;
 connection.topic = "paho/test/simple"
 connection.client_id = "mqtt_js_client_test"
 
+var client;
+
 writeDefaultConnectionInfo(connection);
 
 document.getElementById("connect_btn").addEventListener("click", OnconnectBtnClick);
 document.getElementById("msg_log_btn").addEventListener("click", OnMsgLogBtnClick);
+document.getElementById("msg_clear_btn").addEventListener("click", OnMsgClearBtnClick);
 
 isConnected = false;
 isLogMsg = true;
 
 function OnconnectBtnClick() {
-  getConnectionInfo();
-  client = new Paho.MQTT.Client(connection.hostname, Number(connection.port), connection.client_id);
-  if (isConnected == false)
+  if (isConnected == false) {
+    getConnectionInfo();
+    client = new Paho.MQTT.Client(connection.hostname, Number(connection.port), connection.client_id);
     ConnectToServer(client, connection);
+  }
   else
     disConnect(client);
 }
@@ -34,6 +38,11 @@ function OnMsgLogBtnClick() {
     btn_item.className = "label label-success";
   }
   isLogMsg = !isLogMsg;
+}
+
+function OnMsgClearBtnClick() {
+  btn_item = document.getElementById("messageList");
+  btn_item.innerHTML = "";
 }
 // connect to the server
 function ConnectToServer(client, connection) {
@@ -52,9 +61,9 @@ function onConnect() {
   // Once a connection has been made, make a subscription and send a message.
   console.log("onConnect");
   updateStatus(true);
-  client.subscribe(server.topic);
-  message = new Paho.MQTT.Message("Hello");
-  message.destinationName = server.topic;
+  client.subscribe(connection.topic);
+  message = new Paho.MQTT.Message("Hello " + connection.client_id);
+  message.destinationName = connection.topic;
   client.send(message);
   isConnected = true;
 }
@@ -81,7 +90,8 @@ function onMessageArrived(message) {
      writeMessage(msg);
   // get ecg data
   ecg_data = msg.split(',')[1];
-  updatePYval(ecg_data);
+  if (typeof ecg_data != 'undefined')
+    updatePYval(ecg_data);
 
 }
 
