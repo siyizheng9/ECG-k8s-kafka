@@ -15,8 +15,8 @@ document.getElementById("connect_btn").addEventListener("click", OnconnectBtnCli
 document.getElementById("msg_log_btn").addEventListener("click", OnMsgLogBtnClick);
 document.getElementById("msg_clear_btn").addEventListener("click", OnMsgClearBtnClick);
 
-isConnected = false;
-isLogMsg = true;
+var isConnected = false;
+var isLogMsg = true;
 
 function OnconnectBtnClick() {
   if (isConnected == false) {
@@ -29,7 +29,7 @@ function OnconnectBtnClick() {
 }
 
 function OnMsgLogBtnClick() {
-  btn_item = document.getElementById("msg_log_btn")
+  var btn_item = document.getElementById("msg_log_btn")
   if (isLogMsg == true) {
     btn_item.innerText = "disabled";
     btn_item.className = "label label-warning";
@@ -41,7 +41,7 @@ function OnMsgLogBtnClick() {
 }
 
 function OnMsgClearBtnClick() {
-  btn_item = document.getElementById("messageList");
+  var btn_item = document.getElementById("messageList");
   btn_item.innerHTML = "";
 }
 // connect to the server
@@ -62,7 +62,7 @@ function onConnect() {
   console.log("onConnect");
   updateStatus(true);
   client.subscribe(connection.topic);
-  message = new Paho.MQTT.Message("Hello " + connection.client_id);
+  var message = new Paho.MQTT.Message("Hello " + connection.client_id);
   message.destinationName = connection.topic;
   client.send(message);
   isConnected = true;
@@ -89,7 +89,7 @@ function onMessageArrived(message) {
   if (isLogMsg)
      writeMessage(msg);
   // get ecg data
-  ecg_data = msg.split(',')[1];
+  var ecg_data = msg.split(',')[1];
   if (typeof ecg_data != 'undefined')
     updatePYval(ecg_data);
 
@@ -97,7 +97,7 @@ function onMessageArrived(message) {
 
 // write message to web page
 function writeMessage(message) {
-    list = document.getElementById("messageList");
+    var list = document.getElementById("messageList");
 
     var item = document.createElement('li');
 
@@ -136,8 +136,8 @@ function getConnectionInfo() {
 // update connection status
 function updateStatus(status) {
   if (status == true) {
-    msg = "Connected";
-    clsname = "label label-success";
+    var msg = "Connected";
+    var clsname = "label label-success";
     document.getElementById("connect_btn").innerText = "Disconnect"
     document.getElementById("server_host").disabled = true;
     document.getElementById("server_port").disabled = true;
@@ -154,7 +154,7 @@ function updateStatus(status) {
     document.getElementById("client_id").disabled = false;
   }
 
-  el_status = document.getElementById("server_status");
+  var el_status = document.getElementById("server_status");
   el_status.className = clsname;
   el_status.innerHTML = "status: " + msg;
 }
