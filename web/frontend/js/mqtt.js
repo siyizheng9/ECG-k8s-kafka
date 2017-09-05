@@ -5,7 +5,7 @@ var connection = new Object();
 connection.hostname = "192.168.1.101";
 connection.port = 30831;
 connection.topic = "paho/test/simple"
-connection.client_id = "mqtt_js_client_test"
+connection.client_id = "clientid-" + makeid();
 
 var client;
 
@@ -157,4 +157,14 @@ function updateStatus(status) {
   var el_status = document.getElementById("server_status");
   el_status.className = clsname;
   el_status.innerHTML = "status: " + msg;
+}
+
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
 }
