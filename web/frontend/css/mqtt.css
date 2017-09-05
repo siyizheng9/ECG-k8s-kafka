@@ -1,8 +1,6 @@
 ul#messageList {
     overflow: scroll;
-    width : 20em;
     height: 10em;
-    margin: 5px;
 }
 
 div#server_info {
