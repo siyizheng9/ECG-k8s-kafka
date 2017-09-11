@@ -45,7 +45,7 @@ function randomPYval(){
 }
 
 function updatePYval(yVal) {
-    py = parseInt(yVal) / 1000 * h;
+    py = h - (parseInt(yVal) / 1000 * h * 0.8);
 }
 
 loop();
