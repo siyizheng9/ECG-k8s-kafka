@@ -19,7 +19,7 @@ The setup process includes:
 
 Building up a kubernetes system on top of three host machines
 
-There is an [ansible project](https://version.aalto.fi/gitlab/zhengs2/ansible-k8s) for automating deployment process.
+There is an [ansible project](https://github.com/siyizheng9/ansible-k8s-ecg) for automating deployment process.
 
 ## Related repository
 
