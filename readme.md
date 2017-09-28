@@ -23,11 +23,11 @@ There is an [ansible project](https://version.aalto.fi/gitlab/zhengs2/ansible-k8
 
 ## Related repository
 
-* [ansible-k8s](https://version.aalto.fi/gitlab/zhengs2/ansible-k8s)
-* [MQTT-android-client](https://version.aalto.fi/gitlab/zhengs2/MQTT-android-client)
-* [kafka-connect-mqtt](https://version.aalto.fi/gitlab/zhengs2/kafka-connect-mqtt)
-* [kafka-connect-mongodb](https://version.aalto.fi/gitlab/zhengs2/kafka-connect-mongodb)
-* [ECG-Flask](https://version.aalto.fi/gitlab/zhengs2/ECG-Flask)
+* [ansible-k8s](https://github.com/siyizheng9/ansible-k8s-ecg)
+* [MQTT-android-client](https://github.com/siyizheng9/MQTT-android-client)
+* [kafka-connect-mqtt](https://github.com/siyizheng9/kafka-connect-mqtt)
+* [kafka-connect-mongodb](https://github.com/siyizheng9/kafka-connect-mongodb)
+* [ECG-Flask](https://github.com/siyizheng9/ECG-Flask)
 
 ## Reference
 
