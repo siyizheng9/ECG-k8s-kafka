@@ -29,7 +29,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect(Config.mqtt_server, Config.mqtt_port, 60)
+client.connect(Config.mqtt_server, int(Config.mqtt_port), 60)
 
 # Blocking call that processes network traffic, dispactches callbacks and
 # handles reconnecting.
