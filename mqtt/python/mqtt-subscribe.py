@@ -1,6 +1,7 @@
 #!/bin/env python3
 
 import paho.mqtt.client as mqtt
+from Config import Config
 
 
 def kafka_produce(msg):
@@ -14,7 +15,8 @@ def on_connect(client, userdata, flags, rc):
 
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscritions will be renewed.
-    client.subscribe("paho/test/simple")
+    print('subscribe to the topic:', Config.mqtt_topic)
+    client.subscribe(Config.mqtt_topic)
 
 
 # The callback for when a PUBLISH message is received from the server.
@@ -27,7 +29,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("mqtt-svc", 1883, 60)
+client.connect(Config.mqtt_server, Config.mqtt_port, 60)
 
 # Blocking call that processes network traffic, dispactches callbacks and
 # handles reconnecting.
