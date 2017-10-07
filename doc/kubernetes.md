@@ -130,3 +130,5 @@ etcdctl get "" --prefix=true --keys-only | less
 [kubernetes-the-hard-way](https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/4d442675ba44c418be02709f61f192b09c4babc9/docs/01-infrastructure-gcp.md)
 
 [CoreOS + Kubernetes Step By Step](https://coreos.com/kubernetes/docs/latest/getting-started.html)
+
+[kubectl cheatsheet](https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/)
