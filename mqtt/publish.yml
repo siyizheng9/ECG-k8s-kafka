@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mqtt-publisher
+  namespace: default
+  labels:
+     app: mqtt-publisher
+spec:
+  containers:
+  - image: zsy9docker/ecg-sample-publisher
+    imagePullPolicy: IfNotPresent
+    name: mqtt-publisher
+    env:
+    - name: MQTT_PUB_TIME_INTERVAL
+      value: '0'
+  restartPolicy: Never
