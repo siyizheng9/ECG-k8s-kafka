@@ -61,6 +61,22 @@ the domain name resolution issue can be solved by addding corresponding records 
 
 `state=$(curl -s localhost:8083/connectors/MyMongoDbSinkConnector/status|jq '.tasks[0].state'| tr -d '"');if [[ $state == 'FAILED' ]]; then exit 1; else exit 0; fi`
 
+## Useful commands
+
+[Kafka quick start](https://kafka.apache.org/quickstart)
+
+**create topic**:
+bin/kafka-topics.sh --create --zookeeper zookeeper --replication-factor 3 --partitions 1 --topic test
+
+**list topic**:
+bin/kafka-topics.sh --list --zookeeper zookeeper
+
+**describe topic**:
+bin/kafka-topics.sh --describe --zookeeper zookeeper --topic test
+
+**delete topic**:
+bin/kafka-topics.sh --zookeeper zookeeper --delete --topic test
+
 ## references
 
 [Kafka on Kubernetes](https://github.com/Yolean/kubernetes-kafka)
