@@ -66,16 +66,22 @@ the domain name resolution issue can be solved by addding corresponding records 
 [Kafka quick start](https://kafka.apache.org/quickstart)
 
 **create topic**:
-bin/kafka-topics.sh --create --zookeeper zookeeper --replication-factor 3 --partitions 1 --topic test
+`bin/kafka-topics.sh --create --zookeeper zookeeper --replication-factor 3 --partitions 1 --topic test`
 
 **list topic**:
-bin/kafka-topics.sh --list --zookeeper zookeeper
+`bin/kafka-topics.sh --list --zookeeper zookeeper`
 
 **describe topic**:
-bin/kafka-topics.sh --describe --zookeeper zookeeper --topic test
+`bin/kafka-topics.sh --describe --zookeeper zookeeper --topic test`
 
 **delete topic**:
-bin/kafka-topics.sh --zookeeper zookeeper --delete --topic test
+`bin/kafka-topics.sh --zookeeper zookeeper --delete --topic test`
+
+**producer**:
+`bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mqtt-test`
+
+**consumer**:
+`bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mqtt-test`
 
 ## references
 
