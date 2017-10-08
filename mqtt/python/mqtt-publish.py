@@ -8,7 +8,8 @@ from Config import Config
 
 # The callback for when the client recieves a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code " + str(rc))
+    # print("Connected with result code " + str(rc))
+    pass
 
 
 client = mqtt.Client()
@@ -25,7 +26,7 @@ datareader = csv.reader(csvfile)
 count = 0
 start_time = time.time()
 for i in range(int(Config.repeat_test)):
-    print('Publishing to topic:', Config.mqtt_topic, 'round:', i+1)
+    # print('Publishing to topic:', Config.mqtt_topic, 'round:', i+1)
     for data in datareader:
         msg = data[0] + ',' + data[1]
         client.publish(Config.mqtt_topic, msg)
