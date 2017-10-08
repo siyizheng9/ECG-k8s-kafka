@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - image: zsy9docker/ecg-sample-publisher
-    imagePullPolicy: IfNotPresent
+    imagePullPolicy: Always
     name: mqtt-publisher
     env:
     - name: MQTT_PUB_TIME_INTERVAL
