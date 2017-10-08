@@ -1,18 +1,20 @@
-apiVersion: v1
-kind: Pod
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: mqtt-publisher
-  namespace: default
-  labels:
-     app: mqtt-publisher
+  name: mqtt-publish
 spec:
-  containers:
-  - image: zsy9docker/ecg-sample-publisher
-    imagePullPolicy: Always
-    name: mqtt-publisher
-    env:
-    - name: MQTT_PUB_TIME_INTERVAL
-      value: '0'
-    - name: MQTT_REPEAT_TEST
-      value: '1'
-  restartPolicy: Never
+  template:
+    metadata:
+      labels:
+        app: mqtt-publish
+    spec:
+      containers:
+      - image: zsy9docker/ecg-sample-publisher
+        imagePullPolicy: Always
+        name: mqtt-publisher
+        env:
+        - name: MQTT_PUB_TIME_INTERVAL
+          value: '0'
+        - name: MQTT_REPEAT_TEST
+          value: '1'
+      restartPolicy: Never
