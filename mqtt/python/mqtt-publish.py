@@ -25,13 +25,13 @@ datareader = csv.reader(csvfile)
 count = 0
 start_time = time.time()
 for i in range(int(Config.repeat_test)):
-    print('Publishing to topic:', Config.mqtt_topic, 'round:', i)
+    print('Publishing to topic:', Config.mqtt_topic, 'round:', i+1)
     for data in datareader:
         msg = data[0] + ',' + data[1]
         client.publish(Config.mqtt_topic, msg)
         # print(msg)
         count += 1
-        time.sleep(int(Config.time_interval))
+        time.sleep(float(Config.time_interval))
     csvfile.seek(0)
 
 elapsed_time = time.time() - start_time
