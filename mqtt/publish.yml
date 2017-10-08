@@ -14,5 +14,5 @@ spec:
     - name: MQTT_PUB_TIME_INTERVAL
       value: '0'
     - name: MQTT_REPEAT_TEST
-      vlaue: '1'
+      value: '1'
   restartPolicy: Never
