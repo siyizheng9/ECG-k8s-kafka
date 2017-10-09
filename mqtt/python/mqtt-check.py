@@ -1,12 +1,12 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 
 import paho.mqtt.client as mqtt
 from Config import Config
+import sys
 
 
-# topic = Config.mqtt_topic
-# https://mosquitto.org/man/mosquitto-8.html
 # topic = '$SYS/broker/publish/messages/dropped'
+# topic = Config.mqtt_topic
 # topic= '$SYS/broker/publish/messages/sent'
 topic = '$SYS/broker/publish/messages/received'
 
@@ -18,12 +18,14 @@ def on_connect(client, userdata, flags, rc):
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscritions will be renewed.
     # print('subscribe to the topic:', topic)
-    client.subscribe(topic)
+    client.subscribe('$SYS/broker/publish/messages/received')
+    # client.subscribe('$SYS/broker/publish/messages/dropped')
 
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
+    sys.stdout.flush()
 
 
 client = mqtt.Client()
