@@ -1,12 +1,14 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 
 import paho.mqtt.client as mqtt
 from Config import Config
 import time
+import sys
 
 
 topic = 'ecg/test/+/data'
 count = 0
+origin_count = 1
 # topic = Config.mqtt_topic
 # The callback for when the client recieves a CONNACK response from the server.
 
@@ -38,6 +40,10 @@ client.connect(Config.mqtt_server, int(Config.mqtt_port), 60)
 # Other loop*() functions are available that given a threaded interface and a
 # manaual interface.
 client.loop_start()
+
 while True:
     time.sleep(3)
-    print('message received count:', count)
+    if count != origin_count:
+        print('message received count:', count)
+        sys.stdout.flush()
+        origin_count = count
